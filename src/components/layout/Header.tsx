@@ -1,8 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Film, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import cinecraftLogo from '@/assets/cinecraft-logo.png';
 
 const navItems = [
   { label: 'Dashboard', path: '/' },
@@ -23,13 +24,11 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="relative">
-              <Film className="h-8 w-8 text-primary transition-transform duration-300 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
-            <span className="text-xl font-bold tracking-tight">
-              Cine<span className="text-gradient">craft</span>
-            </span>
+            <img 
+              src={cinecraftLogo} 
+              alt="Cinecraft Logo" 
+              className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+            />
           </Link>
           
           {/* Desktop Navigation */}

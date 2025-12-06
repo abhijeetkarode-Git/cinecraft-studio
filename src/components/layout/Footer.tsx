@@ -1,5 +1,6 @@
-import { Film, Github, Twitter, Youtube } from 'lucide-react';
+import { Github, Twitter, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import cinecraftLogo from '@/assets/cinecraft-logo.png';
 
 export function Footer() {
   return (
@@ -9,10 +10,11 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <Film className="h-6 w-6 text-primary" />
-              <span className="text-lg font-bold">
-                Cine<span className="text-gradient">craft</span>
-              </span>
+              <img 
+                src={cinecraftLogo} 
+                alt="Cinecraft Logo" 
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Command-based cinematography planning. Turn your vision into structured shot plans.
