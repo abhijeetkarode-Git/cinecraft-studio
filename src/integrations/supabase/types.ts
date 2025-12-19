@@ -14,7 +14,141 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      camera_paths: {
+        Row: {
+          created_at: string
+          direction: string
+          duration: number
+          end_position: Json
+          id: string
+          movement_type: string
+          path_points: Json
+          radius: number | null
+          shot_plan_id: string
+          speed: string
+          start_position: Json
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          direction: string
+          duration?: number
+          end_position?: Json
+          id?: string
+          movement_type: string
+          path_points?: Json
+          radius?: number | null
+          shot_plan_id: string
+          speed?: string
+          start_position?: Json
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          direction?: string
+          duration?: number
+          end_position?: Json
+          id?: string
+          movement_type?: string
+          path_points?: Json
+          radius?: number | null
+          shot_plan_id?: string
+          speed?: string
+          start_position?: Json
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      scene_compositions: {
+        Row: {
+          created_at: string
+          fill_light_direction: string
+          id: string
+          key_light_direction: string
+          leading_lines_enabled: boolean
+          leading_lines_points: Json
+          rim_light_direction: string | null
+          rule_of_thirds_enabled: boolean
+          shot_plan_id: string
+          subject_position: Json
+          suggestions: Json
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          fill_light_direction?: string
+          id?: string
+          key_light_direction?: string
+          leading_lines_enabled?: boolean
+          leading_lines_points?: Json
+          rim_light_direction?: string | null
+          rule_of_thirds_enabled?: boolean
+          shot_plan_id: string
+          subject_position?: Json
+          suggestions?: Json
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          fill_light_direction?: string
+          id?: string
+          key_light_direction?: string
+          leading_lines_enabled?: boolean
+          leading_lines_points?: Json
+          rim_light_direction?: string | null
+          rule_of_thirds_enabled?: boolean
+          shot_plan_id?: string
+          subject_position?: Json
+          suggestions?: Json
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      scene_simulations: {
+        Row: {
+          actor_position: Json
+          camera_fov: number
+          camera_position: Json
+          camera_rotation: Json
+          created_at: string
+          environment_type: string
+          id: string
+          path_config: Json | null
+          shot_plan_id: string
+          show_frustum: boolean
+          show_grid: boolean
+          updated_at: string
+        }
+        Insert: {
+          actor_position?: Json
+          camera_fov?: number
+          camera_position?: Json
+          camera_rotation?: Json
+          created_at?: string
+          environment_type?: string
+          id?: string
+          path_config?: Json | null
+          shot_plan_id: string
+          show_frustum?: boolean
+          show_grid?: boolean
+          updated_at?: string
+        }
+        Update: {
+          actor_position?: Json
+          camera_fov?: number
+          camera_position?: Json
+          camera_rotation?: Json
+          created_at?: string
+          environment_type?: string
+          id?: string
+          path_config?: Json | null
+          shot_plan_id?: string
+          show_frustum?: boolean
+          show_grid?: boolean
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

@@ -2,13 +2,18 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { ShotPlanDetail } from '@/components/cinematography/ShotPlanDetail';
 import { RecommendationCard } from '@/components/cinematography/RecommendationCard';
+import { CameraPathVisualizer } from '@/components/cinematography/CameraPathVisualizer';
+import { CompositionOverlay } from '@/components/cinematography/CompositionOverlay';
+import { Scene3DPreview } from '@/components/cinematography/Scene3DPreview';
 import { ShotPlanSkeleton } from '@/components/ui/LoadingSkeleton';
 import { Button } from '@/components/ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useStore } from '@/store/useStore';
+import { useSimulationData } from '@/hooks/useSimulationData';
 import { generateRecommendations } from '@/lib/mockProcessor';
 import { 
   ArrowLeft, Download, Share2, Trash2, 
-  Sparkles, Copy, Check
+  Sparkles, Copy, Check, Route, Grid3X3, Box
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -20,6 +25,18 @@ export default function ShotPlanPage() {
   
   const shotPlan = id ? getShotPlan(id) : undefined;
   const recommendations = shotPlan ? generateRecommendations(shotPlan) : [];
+  
+  const {
+    cameraPath,
+    composition,
+    simulation,
+    isLoading: simLoading,
+    saveCameraPath,
+    saveComposition,
+    saveSimulation,
+    setComposition,
+    regenerateCameraPath,
+  } = useSimulationData(shotPlan);
   
   const handleDelete = () => {
     if (id) {
@@ -105,6 +122,60 @@ export default function ShotPlanPage() {
             
             {/* Shot Plan Details */}
             <ShotPlanDetail shotPlan={shotPlan} />
+            
+            {/* AI Tools Section */}
+            <div className="mt-12">
+              <div className="flex items-center gap-2 mb-6">
+                <Sparkles className="h-5 w-5 text-primary" />
+                <h2 className="text-xl font-bold">AI Cinematography Tools</h2>
+              </div>
+              
+              <Tabs defaultValue="camera-path" className="w-full">
+                <TabsList className="grid w-full grid-cols-3 mb-6">
+                  <TabsTrigger value="camera-path" className="flex items-center gap-2">
+                    <Route className="h-4 w-4" />
+                    Camera Path
+                  </TabsTrigger>
+                  <TabsTrigger value="composition" className="flex items-center gap-2">
+                    <Grid3X3 className="h-4 w-4" />
+                    Composition
+                  </TabsTrigger>
+                  <TabsTrigger value="3d-preview" className="flex items-center gap-2">
+                    <Box className="h-4 w-4" />
+                    3D Preview
+                  </TabsTrigger>
+                </TabsList>
+                
+                <TabsContent value="camera-path">
+                  {cameraPath && (
+                    <CameraPathVisualizer 
+                      cameraPath={cameraPath}
+                      onSave={saveCameraPath}
+                    />
+                  )}
+                </TabsContent>
+                
+                <TabsContent value="composition">
+                  {composition && (
+                    <CompositionOverlay 
+                      composition={composition}
+                      onUpdate={setComposition}
+                      onSave={saveComposition}
+                    />
+                  )}
+                </TabsContent>
+                
+                <TabsContent value="3d-preview">
+                  {simulation && (
+                    <Scene3DPreview 
+                      simulation={simulation}
+                      cameraPath={cameraPath}
+                      onSave={saveSimulation}
+                    />
+                  )}
+                </TabsContent>
+              </Tabs>
+            </div>
             
             {/* Recommendations */}
             {recommendations.length > 0 && (
