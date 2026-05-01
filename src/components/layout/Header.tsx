@@ -8,6 +8,7 @@ import cinecraftLogo from '@/assets/cinecraft-logo.png';
 const navItems = [
   { label: 'Dashboard', path: '/' },
   { label: 'Create', path: '/create' },
+  { label: 'AI Director', path: '/ai-director' },
   { label: 'Library', path: '/library' },
   { label: 'Suggestions', path: '/recommendations' },
   { label: 'Collaborate', path: '/collaborate' },

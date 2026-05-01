@@ -10,6 +10,7 @@ import Library from "./pages/Library";
 import Recommendations from "./pages/Recommendations";
 import Collaborate from "./pages/Collaborate";
 import Export from "./pages/Export";
+import AIDirector from "./pages/AIDirector";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/recommendations" element={<Recommendations />} />
           <Route path="/collaborate" element={<Collaborate />} />
           <Route path="/export" element={<Export />} />
+          <Route path="/ai-director" element={<AIDirector />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
