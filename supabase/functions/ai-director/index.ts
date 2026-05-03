@@ -11,7 +11,9 @@ const corsHeaders = {
 const SYSTEM_PROMPT = `You are an expert cinematographer and AI Director.
 Given a natural-language scene description, design a complete cinematic plan:
 a vivid scene summary, 3–5 shots (each with type, camera angle, movement,
-lighting, and a one-sentence description), 3–5 actionable suggestions to
+lighting, duration, target subject, start & end camera positions in a
+normalized 3D space (x,y,z roughly in -8..8 with y as height 0..6),
+and a one-sentence description), 3–5 actionable suggestions to
 improve mood/composition/lighting, and a cinematic score breakdown (overall,
 composition, lighting — each 1–10).
 Be concise, specific, and grounded in real cinematography practice.`;
@@ -36,10 +38,23 @@ const tool = {
               shot_type: { type: "string", enum: ["wide", "medium", "close-up", "extreme close-up", "establishing", "over-the-shoulder", "reaction"] },
               camera_angle: { type: "string" },
               movement: { type: "string", enum: ["static", "dolly", "tracking", "orbit", "crane", "handheld", "pan", "tilt", "zoom"] },
+              duration: { type: "number", description: "Shot duration in seconds (2-8)" },
+              target: { type: "string", description: "Subject the camera focuses on" },
+              start_position: {
+                type: "object",
+                properties: { x: { type: "number" }, y: { type: "number" }, z: { type: "number" } },
+                required: ["x", "y", "z"], additionalProperties: false,
+              },
+              end_position: {
+                type: "object",
+                properties: { x: { type: "number" }, y: { type: "number" }, z: { type: "number" } },
+                required: ["x", "y", "z"], additionalProperties: false,
+              },
               lighting: { type: "string" },
+              mood: { type: "string" },
               description: { type: "string" },
             },
-            required: ["shot_type", "camera_angle", "movement", "lighting", "description"],
+              required: ["shot_type", "camera_angle", "movement", "duration", "target", "start_position", "end_position", "lighting", "mood", "description"],
             additionalProperties: false,
           },
         },
