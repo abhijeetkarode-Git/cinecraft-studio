@@ -9,6 +9,7 @@ import { Sparkles, Camera, Lightbulb, Star, Loader2, Wand2, Play, Pause, RotateC
 import { supabase } from "@/integrations/supabase/client";
 import { Scene3DViewer } from "@/components/ai-director/Scene3DViewer";
 import { ShotCard } from "@/components/ai-director/ShotCard";
+import { StoryboardGenerator } from "@/components/ai-director/StoryboardGenerator";
 import type { AIScenePlan, AIShot } from "@/types/aiDirector";
 
 const examples = [
@@ -266,6 +267,9 @@ export default function AIDirector() {
                 ))}
               </ul>
             </Card>
+
+            {/* AI Visual Storyboard */}
+            <StoryboardGenerator plan={plan} />
           </div>
         )}
       </div>
