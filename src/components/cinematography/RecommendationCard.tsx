@@ -53,7 +53,11 @@ export function RecommendationCard({ recommendation, onApply, className }: Recom
       "cursor-pointer",
       className
     )}
+    role="button"
+    tabIndex={0}
+    aria-label={`${recommendation.type}: ${recommendation.title}`}
     onClick={onApply}
+    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onApply?.(); } }}
     >
       <div className="p-5">
         {/* Header */}

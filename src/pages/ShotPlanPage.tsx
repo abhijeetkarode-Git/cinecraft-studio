@@ -1,5 +1,6 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { ShotPlanDetail } from '@/components/cinematography/ShotPlanDetail';
 import { RecommendationCard } from '@/components/cinematography/RecommendationCard';
 import { CameraPathVisualizer } from '@/components/cinematography/CameraPathVisualizer';
@@ -79,6 +80,12 @@ export default function ShotPlanPage() {
   
   return (
     <Layout>
+      <SEO
+        title={shotPlan.shotType ? `${shotPlan.shotType} — Shot Plan` : 'Shot Plan'}
+        description={`${shotPlan.shotType} shot plan. ${shotPlan.mood} mood, ${shotPlan.sceneType} scene with ${shotPlan.lighting.style} lighting and ${shotPlan.camera.focalLength} ${shotPlan.camera.lens}.`}
+        path={`/shot-plan/${shotPlan.id}`}
+        type="article"
+      />
       <div className="min-h-screen py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { ShotPlanCard } from '@/components/cinematography/ShotPlanCard';
 import { HistoryList } from '@/components/cinematography/HistoryList';
@@ -16,6 +17,11 @@ const Index = () => {
   
   return (
     <Layout>
+      <SEO
+        title="Cinecraft — AI Cinematography Planning Assistant"
+        description="Turn natural-language scene descriptions into professional shot plans, camera paths, and storyboards with AI."
+        path="/"
+      />
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         {/* Background effects */}

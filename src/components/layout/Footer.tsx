@@ -47,13 +47,13 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-foreground">Connect</h4>
             <div className="flex gap-3">
-              <span className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors cursor-pointer">
+              <span role="button" tabIndex={0} aria-label="Twitter" className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors cursor-pointer">
                 <Twitter className="h-5 w-5 text-muted-foreground" />
               </span>
-              <span className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors cursor-pointer">
+              <span role="button" tabIndex={0} aria-label="GitHub" className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors cursor-pointer">
                 <Github className="h-5 w-5 text-muted-foreground" />
               </span>
-              <span className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors cursor-pointer">
+              <span role="button" tabIndex={0} aria-label="YouTube" className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors cursor-pointer">
                 <Youtube className="h-5 w-5 text-muted-foreground" />
               </span>
             </div>
