@@ -1,4 +1,5 @@
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { RecommendationCard } from '@/components/cinematography/RecommendationCard';
 import { useStore } from '@/store/useStore';
 import { Recommendation } from '@/types/cinematography';
@@ -105,6 +106,11 @@ export default function Recommendations() {
   
   return (
     <Layout>
+      <SEO
+        title="Smart Shot Suggestions"
+        description="Professional cinematography techniques: angles, movement, lighting, lens choices, and visual styles to enhance your shot plans."
+        path="/recommendations"
+      />
       <div className="min-h-screen py-12">
         <div className="container mx-auto px-4">
           {/* Header */}

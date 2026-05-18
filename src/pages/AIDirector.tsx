@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Layout } from "@/components/layout/Layout";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -130,6 +131,11 @@ export default function AIDirector() {
 
   return (
     <Layout>
+      <SEO
+        title="AI Director"
+        description="Describe a scene and the AI generates a multi-shot cinematography plan with synchronized 3D camera animation and an AI storyboard."
+        path="/ai-director"
+      />
       <div className="container mx-auto px-4 py-8 max-w-7xl">
         {/* Header */}
         <div className="mb-6">
@@ -222,10 +228,10 @@ export default function AIDirector() {
 
                   {/* Playback controls */}
                   <div className="flex items-center gap-2 mt-3">
-                    <Button size="sm" variant="outline" onClick={() => setPlaying((p) => !p)}>
+                    <Button size="sm" variant="outline" aria-label={playing ? "Pause playback" : "Play scene"} onClick={() => setPlaying((p) => !p)}>
                       {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
                     </Button>
-                    <Button size="sm" variant="ghost" onClick={reset}>
+                    <Button size="sm" variant="ghost" aria-label="Reset playback" onClick={reset}>
                       <RotateCcw className="h-4 w-4" />
                     </Button>
                     <Button size="sm" variant={freeView ? "amber" : "ghost"} onClick={() => setFreeView((v) => !v)}>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { mockTeamMembers, mockComments, mockVersions } from '@/lib/mockProcessor';
 import { cn } from '@/lib/utils';
@@ -23,6 +24,11 @@ export default function Collaborate() {
   
   return (
     <Layout>
+      <SEO
+        title="Collaborate"
+        description="Work with your team on shot plans: comments, version history, and team activity in one shared workspace."
+        path="/collaborate"
+      />
       <div className="min-h-screen py-12">
         <div className="container mx-auto px-4">
           {/* Header */}
@@ -117,7 +123,9 @@ export default function Collaborate() {
                 {/* Comment Input */}
                 <div className="p-4 border-t border-border/30">
                   <div className="flex gap-2">
+                    <label htmlFor="collab-comment" className="sr-only">Add a comment</label>
                     <input
+                      id="collab-comment"
                       type="text"
                       placeholder="Add a comment..."
                       value={newComment}
@@ -125,7 +133,7 @@ export default function Collaborate() {
                       className="flex-1 px-3 py-2 bg-secondary/50 border border-border/50 rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50"
                       onKeyDown={(e) => e.key === 'Enter' && handleSendComment()}
                     />
-                    <Button variant="default" size="icon" onClick={handleSendComment}>
+                    <Button variant="default" size="icon" aria-label="Send comment" onClick={handleSendComment}>
                       <Send className="h-4 w-4" />
                     </Button>
                   </div>

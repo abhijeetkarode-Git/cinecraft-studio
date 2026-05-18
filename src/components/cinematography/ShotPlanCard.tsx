@@ -32,7 +32,7 @@ export function ShotPlanCard({ shotPlan, onDelete, className }: ShotPlanCardProp
           </div>
           <div className="flex items-center gap-1">
             <Link to={`/shot-plan/${shotPlan.id}`}>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
+              <Button variant="ghost" size="icon" className="h-8 w-8" aria-label="Open shot plan details">
                 <ExternalLink className="h-4 w-4" />
               </Button>
             </Link>
@@ -41,6 +41,7 @@ export function ShotPlanCard({ shotPlan, onDelete, className }: ShotPlanCardProp
                 variant="ghost" 
                 size="icon" 
                 className="h-8 w-8 text-muted-foreground hover:text-destructive"
+                aria-label="Delete shot plan"
                 onClick={() => onDelete(shotPlan.id)}
               >
                 <Trash2 className="h-4 w-4" />

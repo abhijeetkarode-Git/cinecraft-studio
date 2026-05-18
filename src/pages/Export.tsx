@@ -1,4 +1,5 @@
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { useStore } from '@/store/useStore';
 import { cn } from '@/lib/utils';
@@ -86,6 +87,11 @@ export default function Export() {
   
   return (
     <Layout>
+      <SEO
+        title="Export Center"
+        description="Export your shot plans to PDF, CSV, JSON, Blender, or Unreal Engine for production and integration with other tools."
+        path="/export"
+      />
       <div className="min-h-screen py-12">
         <div className="container mx-auto px-4">
           {/* Header */}
@@ -188,7 +194,7 @@ export default function Export() {
           </div>
           
           {/* Integration Partners */}
-          <div className="mt-16">
+          <section className="mt-16">
             <h2 className="text-2xl font-bold text-center mb-8">Integration Partners</h2>
             <div className="glass-card p-8">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-50">
@@ -221,7 +227,7 @@ export default function Export() {
                 Direct integrations coming soon. Use JSON export for custom integrations.
               </p>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </Layout>

@@ -1,0 +1,19 @@
+# Cinecraft
+
+> AI-powered cinematography planning assistant. Turn natural-language scene descriptions into professional shot plans, camera paths, lighting designs, and visual storyboards.
+
+Cinecraft helps filmmakers plan scenes during pre-production. It combines a command-based planner, an AI Director that generates multi-shot sequences with synchronized 3D camera animation, and an AI storyboard generator.
+
+## Pages
+
+- [Dashboard](/): Overview, sample commands, recent shot plans.
+- [Create Shot Plan](/create): Describe a scene in natural language and generate a structured shot plan.
+- [AI Director](/ai-director): Generate a multi-shot scene plan with live 3D camera animation and visual storyboards.
+- [Shot Library](/library): Browse, filter, and manage saved shot plans.
+- [Smart Suggestions](/recommendations): Cinematography techniques and recommendations.
+- [Collaborate](/collaborate): Team members, comments, and version history.
+- [Export](/export): Export shot plans to PDF, CSV, JSON, Blender, or Unreal.
+
+## Optional
+
+- [Sitemap](/sitemap.xml): Full list of public routes.

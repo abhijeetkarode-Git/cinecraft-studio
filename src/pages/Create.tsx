@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { CommandInputBox } from '@/components/cinematography/CommandInputBox';
 import { HistoryList } from '@/components/cinematography/HistoryList';
 import { CardSkeleton } from '@/components/ui/LoadingSkeleton';
@@ -33,6 +34,11 @@ export default function Create() {
   
   return (
     <Layout>
+      <SEO
+        title="Create Shot Plan"
+        description="Describe your scene in natural language and generate a structured cinematography plan with camera, lens, and lighting details."
+        path="/create"
+      />
       <div className="min-h-screen py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">

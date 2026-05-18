@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { ShotPlanCard } from '@/components/cinematography/ShotPlanCard';
 import { Button } from '@/components/ui/button';
 import { useStore } from '@/store/useStore';
@@ -70,6 +71,11 @@ export default function Library() {
   
   return (
     <Layout>
+      <SEO
+        title="Shot Library"
+        description="Browse, search, and filter your saved Cinecraft shot plans by mood, scene type, camera movement, and framing."
+        path="/library"
+      />
       <div className="min-h-screen py-12">
         <div className="container mx-auto px-4">
           {/* Header */}
@@ -95,7 +101,9 @@ export default function Library() {
               {/* Search */}
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <label htmlFor="library-search" className="sr-only">Search shot plans</label>
                 <input
+                  id="library-search"
                   type="text"
                   placeholder="Search by command, mood, or tags..."
                   value={searchQuery}
@@ -129,6 +137,9 @@ export default function Library() {
                 {/* View Toggle */}
                 <div className="flex items-center border border-border/50 rounded-lg p-1">
                   <button
+                    type="button"
+                    aria-label="Grid view"
+                    aria-pressed={viewMode === 'grid'}
                     onClick={() => setViewMode('grid')}
                     className={cn(
                       "p-1.5 rounded",
@@ -138,6 +149,9 @@ export default function Library() {
                     <Grid3X3 className="h-4 w-4" />
                   </button>
                   <button
+                    type="button"
+                    aria-label="List view"
+                    aria-pressed={viewMode === 'list'}
                     onClick={() => setViewMode('list')}
                     className={cn(
                       "p-1.5 rounded",
